@@ -1,0 +1,36 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: '#0047AD',
+        background: '#000',
+        light: '#fff',
+        border: '#C6C6C6',
+      },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+        leckerli: ['Leckerli One', 'cursive'],
+        overlock: ['Overlock', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+        robotoCondensed: ['Roboto Condensed', 'sans-serif'],
+        sansita: ['Sansita', 'sans-serif'],
+        workSans: ['Work Sans', 'sans-serif'],
+        langar: ['Langar', 'cursive'],
+      },
+      borderRadius: {
+        DEFAULT: '12px',
+      },
+      boxShadow: {
+        'neon': '0 0 15px rgba(52, 152, 219, 0.5)',
+        'glow': '0 0 20px rgba(26, 188, 156, 0.3)',
+      },
+    },
+  },
+  plugins: [],
+}
+
