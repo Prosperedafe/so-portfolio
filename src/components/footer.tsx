@@ -11,15 +11,26 @@ export const Footer = () => {
           I design clean, user-friendly experiences that makes an impact
         </p>
       </div>
-      <nav className="font-poppins font-medium text-base sm:text-lg flex justify-center gap-8 grow basis-[200px]" aria-label="Footer Navigation">
+      <nav
+        className="font-poppins font-medium text-base sm:text-lg flex justify-center gap-8 grow basis-[200px]"
+        aria-label="Footer Navigation"
+      >
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/project">Projects</Link>
         <Link to="/contact">Contact</Link>
       </nav>
 
-      <section className="flex gap-8 grow basis-[200px] justify-center sm:justify-end" aria-label="Social Media Links">
-        <a href="http://" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+      <section
+        className="flex gap-8 grow basis-[200px] justify-center sm:justify-end"
+        aria-label="Social Media Links"
+      >
+        <a
+          href="http://"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Behance"
+        >
           <svg
             width="32"
             height="32"
@@ -55,7 +66,12 @@ export const Footer = () => {
             </defs>
           </svg>
         </a>
-        <a href="http://" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <a
+          href="https://wa.me/09029297676"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+        >
           <svg
             width="32"
             height="32"
@@ -106,7 +122,12 @@ export const Footer = () => {
             </defs>
           </svg>
         </a>
-        <a href="http://" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <a
+          href="https://www.linkedin.com/in/salvation-ovie-149a4a256/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
           <svg
             width="32"
             height="32"

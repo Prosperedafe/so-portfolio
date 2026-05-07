@@ -9,9 +9,9 @@ export const PrimaryBtn = ({
 }) => {
   const sizeClasses = {
     sm: "text-sm px-4 py-2",
-    base: "text-base px-8 py-2",
-    lg: "text-lg px-10 py-5",
-    xl: "text-xl px-12 py-6",
+    base: "text-base px-6 py-2",
+    lg: "text-lg px-8 py-5",
+    xl: "text-xl px-10 py-6",
   };
 
   return (

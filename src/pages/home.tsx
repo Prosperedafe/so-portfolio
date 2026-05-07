@@ -1,21 +1,19 @@
+import { ContactForm } from "../components/contact-form";
+import { Hero } from "../components/home/hero";
+import { Projects } from "../components/home/projects";
 import { Marquee } from "../components/marquee";
 
 const Home = () => {
   return (
-    <main className="text-lg">
-      <section>
-        <Marquee
-          fontSize={"20px"}
-          speed={2}
-          direction={"left"}
-          text={
-            "I am a Full Stack Developer. I am passionate about building web applications."
-          }
-        />
-        <h2>Hero</h2>
-      </section>
+    <main>
+      <Hero />
+      <Marquee speed={2} direction={"left"} text={"OVIE SALVATION"} />
+      <Projects />
+      <ContactForm />
     </main>
   );
 };
+
+
 
 export default Home;

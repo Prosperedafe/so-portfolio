@@ -18,7 +18,7 @@ export default {
         overlock: ['Overlock', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
         robotoCondensed: ['Roboto Condensed', 'sans-serif'],
-        sansita: ['Sansita', 'sans-serif'],
+        sansita: ['Sansita One', 'cursive', 'sans-serif'],
         workSans: ['Work Sans', 'sans-serif'],
         langar: ['Langar', 'cursive'],
       },
