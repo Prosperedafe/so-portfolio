@@ -10,12 +10,12 @@ export const Hero = () => {
           Hi, I'm Salvation
         </h1>
 
-        <h2 className="font-inter font-medium text-lg md:text-[1.5rem] leading-relaxed uppercase mb-8">
+        <h2 className="font-work-sans font-medium text-lg md:text-[1.5rem] leading-relaxed uppercase mb-8">
           I'm a UI/UX designer focused on solving real-world problems through
           clean and intuitive interfaces.
         </h2>
 
-        <p className="font-work-sans text-base md:text-lg leading-loose">
+        <p className="font-overlock font-bold text-base md:text-lg leading-loose">
           I help brands turn complex ideas into seamless, enjoyable products.
           From mobile apps to web platforms, I focus on understanding user needs
           and crafting interfaces that are not only visually engaging but
@@ -25,12 +25,12 @@ export const Hero = () => {
         </p>
       </div>
 
-      <div className="grow basis-[200px] lg:basis-[100px]">
-        <div className="aspect-4/5 w-full bg-[#1A1A1A] rounded-[40px] overflow-hidden flex items-center justify-center border border-white/5 shadow-2xl">
-          <span className="text-light/20 font-inter font-medium italic">
-            Image Section
-          </span>
-        </div>
+      <div className="grow basis-[200px] lg:basis-[100px] overflow-hidden rounded-[10px] ">
+        <img
+          src="/salvation-potrait.png"
+          alt="Salvation"
+          className="w-full scale-[1.01]"
+        />
       </div>
     </section>
   );

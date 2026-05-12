@@ -16,7 +16,7 @@ export const PrimaryBtn = ({
 
   return (
     <button
-      className={`rounded-full border-2 border-border font-inter font-bold hover:bg-primary hover:text-white transition-all duration-300 ${sizeClasses[size]}`}
+      className={`rounded-full border-2 border-border font-overlock font-black hover:bg-primary hover:text-white transition-all duration-300 ${sizeClasses[size]}`}
       onClick={onClick}
     >
       {text}

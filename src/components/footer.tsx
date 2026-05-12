@@ -1,17 +1,27 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
-    <footer className="fluid__container py-8 sm:py-12 text-white bg-[#030303E5] flex flex-wrap justify-between items-center gap-6">
-      <div className="grow basis-[200px]">
+    <footer className="fluid__container py-8 sm:py-12 bg-[#E3E1E1] flex flex-wrap justify-between items-center gap-6">
+      <p className="font-roboto-condensed font-bold text-4xl sm:text-5xl lg:text-6xl">
+        Got a question or want to connect? Send me a message at{" "}
+        <a
+          href="mailto:oviesalvay@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          oviesalvay@gmail.com
+        </a>
+      </p>
+      {/* <div className="grow basis-[200px]">
         <h2 className="text-4xl font-roboto-condensed font-semibold mb-4">
           Salvation Ovie
         </h2>
         <p className="font-poppins font-medium text-base sm:text-lg max-w-[360px]">
           I design clean, user-friendly experiences that makes an impact
         </p>
-      </div>
-      <nav
+      </div> */}
+      {/* <nav
         className="font-poppins font-medium text-base sm:text-lg flex justify-center gap-8 grow basis-[200px]"
         aria-label="Footer Navigation"
       >
@@ -19,8 +29,8 @@ export const Footer = () => {
         <Link to="/about">About</Link>
         <Link to="/project">Projects</Link>
         <Link to="/contact">Contact</Link>
-      </nav>
-
+      </nav> */}
+      {/* 
       <section
         className="flex gap-8 grow basis-[200px] justify-center sm:justify-end"
         aria-label="Social Media Links"
@@ -145,7 +155,7 @@ export const Footer = () => {
             />
           </svg>
         </a>
-      </section>
+      </section> */}
     </footer>
   );
 };

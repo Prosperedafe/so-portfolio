@@ -1,6 +1,9 @@
 import { PrimaryBtn } from "./button";
+import { useWindowWidth } from "../hooks/useWindowWidth";
 
 export const Header = () => {
+  const windowWidth = useWindowWidth();
+
   return (
     <header className="py-6 fluid__container">
       <nav
@@ -8,7 +11,7 @@ export const Header = () => {
         aria-label="Main Navigation"
       >
         <div
-          className="font-langar font-semibold text-2xl sm:text-[2rem]"
+          className={`${windowWidth < 300 ? "text-lg" : "text-2xl"} font-langar font-semibold sm:text-[2rem]`}
           role="img"
           aria-label="Salvation Ovie Logo"
         >
@@ -16,6 +19,7 @@ export const Header = () => {
         </div>
         <div className="flex items-center gap-6">
           <PrimaryBtn
+            size={windowWidth < 350 ? "sm" : "base"}
             text="Let's Talk"
             onClick={() => (window.location.href = "mailto:hello@example.com")}
           />

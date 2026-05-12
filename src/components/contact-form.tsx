@@ -64,14 +64,14 @@ export const ContactForm = () => {
           name="user_name"
           placeholder="Your Name"
           required
-          className="w-full px-6 py-4 rounded-[5px] border border-[#C6C6C6] focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all font-inter placeholder:text-gray-400"
+          className="w-full px-6 py-4 rounded-[5px] border border-border focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all font-inter placeholder:text-gray-400"
         />
         <input
           type="email"
           name="user_email"
           placeholder="Your Email"
           required
-          className="w-full px-6 py-4 rounded-[5px] border border-[#C6C6C6] focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all font-inter placeholder:text-gray-400"
+          className="w-full px-6 py-4 rounded-[5px] border border-border focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all font-inter placeholder:text-gray-400"
         />
 
         <button

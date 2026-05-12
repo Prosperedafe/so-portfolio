@@ -1,4 +1,4 @@
-import { ContactForm } from "../components/contact-form";
+// import { ContactForm } from "../components/contact-form";
 import { Hero } from "../components/home/hero";
 import { Projects } from "../components/home/projects";
 import { Marquee } from "../components/marquee";
@@ -9,11 +9,9 @@ const Home = () => {
       <Hero />
       <Marquee speed={2} direction={"left"} text={"OVIE SALVATION"} />
       <Projects />
-      <ContactForm />
+      {/* <ContactForm /> */}
     </main>
   );
 };
-
-
 
 export default Home;
