@@ -23,110 +23,115 @@ const Project = () => {
   const nextProject = projects[currentIndex + 1];
 
   return (
-    <main className="bg-white">
-      <section className="fluid__container pt-8 md:pt-12">
+    <main className="bg-white fluid__container">
+      <section className="">
         <div
-          className=""
+          className="flex p-12"
           style={{ backgroundColor: project.fullDescriptionBg }}
-        ></div>
-      </section>
-
-      <section className="fluid__container py-16 md:py-24">
-        <div className="max-w-[1000px]">
-          <p className="font-roboto-condensed font-medium text-2xl md:text-[2.25rem] leading-tight text-black mb-12">
+        >
+          {project.descriptionImages?.map((image, index) => (
+            <div key={index} className="flex items-center justify-center">
+              <img src={image} alt={project.title} className="w-full h-auto" />
+            </div>
+          ))}
+        </div>
+        <div className="mt-6">
+          <p className="font-overlock font-bold text-xl md:text-[2rem] leading-tight text-black mb-6">
             {project.fullDescription}
           </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 gap-4 max-w-[350px]">
             <div>
-              <h4 className="text-gray-400 uppercase text-xs tracking-widest mb-2 font-inter font-bold">
+              <h4 className="text-[#817E73] text-lg mb-1 font-poppins font-medium">
                 Duration
               </h4>
-              <p className="font-bold text-black font-inter">
+              <p className="font-medium text-black font-inter text-sm">
                 {project.duration}
               </p>
             </div>
             <div>
-              <h4 className="text-gray-400 uppercase text-xs tracking-widest mb-2 font-inter font-bold">
+              <h4 className="text-[#817E73] text-lg mb-1 font-poppins font-medium">
                 Tools
               </h4>
-              <p className="font-bold text-black font-inter">
+              <p className="font-medium text-black font-inter text-sm">
                 {project.tools.join(", ")}
               </p>
             </div>
             <div>
-              <h4 className="text-gray-400 uppercase text-xs tracking-widest mb-2 font-inter font-bold">
+              <h4 className="text-[#817E73] text-lg mb-1 font-poppins font-medium">
                 Role
               </h4>
-              <p className="font-bold text-black font-inter">{project.role}</p>
+              <p className="font-medium text-black font-inter text-sm">
+                {project.role}
+              </p>
             </div>
           </div>
         </div>
       </section>
       {project.challenges && (
-        <section className="bg-[#D9D9D9] py-16 md:py-24">
-          <div className="fluid__container">
-            <div className="bg-white rounded-3xl p-8 md:p-16 flex flex-col md:flex-row gap-12 items-center">
-              <div className="flex-1 border-2 border-dashed border-black/5 rounded-xl aspect-square flex items-center justify-center italic text-black/10">
-                Mockup Group A
+        <div>
+          <section
+            style={{ backgroundColor: project.challengeBg }}
+            className="mt-12 p-16 md:py-24 flex"
+          >
+            {project.challengeImages?.map((image, index) => (
+              <div key={index} className="flex items-center justify-center">
+                <img
+                  src={image}
+                  alt={project.title}
+                  className="w-full h-auto"
+                />
               </div>
-              <div className="flex-1 border-2 border-dashed border-black/5 rounded-xl aspect-square flex items-center justify-center italic text-black/10">
-                Mockup Group B
-              </div>
-            </div>
-            <p className="mt-8 text-black font-medium max-w-[800px] font-inter text-sm md:text-base">
-              {project.challenges}
-            </p>
-          </div>
-        </section>
-      )}
-      <section className="bg-[#EFE7CE] py-16 md:py-24">
-        <div className="fluid__container">
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="flex-2 bg-white rounded-3xl aspect-video flex items-center justify-center italic text-black/10 border border-black/5">
-              Main Solution Mockup
-            </div>
-            <div className="flex-1 flex flex-col gap-8">
-              <div className="bg-white rounded-3xl aspect-9/16 flex items-center justify-center italic text-black/10 border border-black/5">
-                Mobile A
-              </div>
-              <div className="bg-white rounded-3xl aspect-9/16 flex items-center justify-center italic text-black/10 border border-black/5">
-                Mobile B
-              </div>
-            </div>
-          </div>
-          <p className="mt-8 text-black font-medium max-w-[800px] font-inter text-sm md:text-base">
-            {project.solutions}
+            ))}
+          </section>
+          <p className="font-overlock font-bold text-xl md:text-[2rem] leading-tight text-black mt-6">
+            {project.challenges}
           </p>
         </div>
+      )}
+      <section>
+        <div
+          style={{ backgroundColor: project.solutionBg }}
+          className="mt-12 p-16 md:py-24 flex"
+        >
+          {project.solutionImages?.map((image, index) => (
+            <div key={index} className="flex items-center justify-center">
+              <img src={image} alt={project.title} className="w-full h-auto" />
+            </div>
+          ))}
+        </div>
+        <p className="font-overlock font-bold text-xl md:text-[2rem] leading-tight text-black mt-6 mb-12">
+          {project.solutions}
+        </p>
       </section>
 
       {nextProject && (
-        <section className="fluid__container py-20 md:py-32">
-          <h2 className="font-sansita text-4xl mb-12">Next Project</h2>
+        <section className="pb-12">
+          <h2 className="font-ubuntu font-bold text-2xl md:text-4xl mb-12">
+            Next Project
+          </h2>
           <div className="group">
-            <Link to={`/project/${nextProject.id}`}>
-              <div
-                className="rounded-3xl aspect-video flex items-center justify-center overflow-hidden mb-8 transition-transform group-hover:scale-[1.01]"
-                // style={{ backgroundColor: nextProject.bgColor }}
-              >
-                <div className="text-white/20 italic">
-                  {/* {nextProject.imagePlaceholder} */}
-                </div>
-              </div>
-            </Link>
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 px-2">
-              <div className="max-w-[700px]">
-                <h3 className="font-sansita text-3xl md:text-5xl mb-4">
-                  {nextProject.title}
-                </h3>
-                <p className="text-gray-600 font-inter text-sm md:text-base">
+            <div
+              className="p-16 rounded-3xl aspect-video flex items-center justify-center mb-6 transition-transform group-hover:scale-[1.01]"
+              style={{ backgroundColor: project.nextProjectBg }}
+            >
+              <img
+                src={nextProject.displayImage[0]}
+                alt={nextProject.title}
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="flex flex-col md:flex-row justify-between gap-6">
+              <h3 className="grow basis-[300px] font-ubuntu font-bold text-2xl md:text-4xl">
+                {nextProject.title}
+              </h3>
+              <div className="grow basis-[300px]">
+                <p className="font-overlock font-bold text-base md:text-lg mb-6">
                   {nextProject.shortDescription}
                 </p>
+                <Link to={`/project/${nextProject.id}`}>
+                  <PrimaryBtn text="View Project" />
+                </Link>
               </div>
-              <Link to={`/project/${nextProject.id}`}>
-                <PrimaryBtn text="View Project" />
-              </Link>
             </div>
           </div>
         </section>

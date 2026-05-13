@@ -23,7 +23,7 @@ export const Projects = () => {
                   className="h-auto w-[80%] block mx-auto"
                 />
               </div>
-              <figcaption className="font-ubuntu font-bold text-2xl md:text-[2.25rem] text-black mt-6">
+              <figcaption className="font-ubuntu font-bold text-2xl md:text-4xl text-black mt-6">
                 {project.title}
               </figcaption>
             </figure>

@@ -5,6 +5,9 @@ export interface ProjectData {
   fullDescription: string;
   bgColor: string[];
   displayImage: string[];
+  descriptionImages?: string[];
+  challengeImages?: string[];
+  solutionImages?: string[];
   fullDescriptionBg?: string;
   challengeBg?: string;
   solutionBg?: string;
@@ -24,6 +27,20 @@ export const projects: ProjectData[] = [
     fullDescription: "FarmLink is a digital marketplace that connects farmers with pesticide sellers and produce buyers. It helps farmers easily find the right pest control solutions and sell their crops without the stress of transportation.",
     bgColor: ["#0047AD6B", "#ECE4C5"],
     displayImage: ["/farm-app-ui-1.png", "/farm-app-ui-2.png"],
+    descriptionImages:[
+      "/farm-app-desc-1.png",
+      "/farm-app-desc-2.png",
+      "/farm-app-desc-3.png",
+      "/farm-app-desc-4.png",
+    ],
+    challengeImages:[
+      "/farm-app-challenge-1.png",
+      "/farm-app-challenge-2.png",
+    ],
+    solutionImages:[
+      "/farm-app-solution-1.png",
+      "/farm-app-solution-2.png",
+    ],
     fullDescriptionBg:"#E7E3BF",
     challengeBg:"#CBCED0",
     solutionBg: "#C3BEAC",
@@ -41,6 +58,22 @@ export const projects: ProjectData[] = [
     fullDescription: "CityHealth is a modern hospital website designed to help patients easily access medical services,book appointments, and find the right care without confusion.",
     bgColor: ["#0F0F0F4D", "#E3E1E1"],
     displayImage: ["/city-health-ui-1.png", "/city-health-ui-2.png"],
+    descriptionImages:[
+      "/city-health-desc-1.png",
+      "/city-health-desc-2.png",
+      "/city-health-desc-3.png",
+    ],
+    challengeImages:[
+      "/city-health-challenge-1.png",
+    ],
+    solutionImages:[
+      "/city-health-solution-1.png",
+      "/city-health-solution-2.png",
+    ],
+    fullDescriptionBg: "#E9E9E9",
+    challengeBg: "#fff",
+    solutionBg: "#0F0F0F4D",
+    nextProjectBg: "#0047AD6B",
     duration: "3 Weeks",
     tools: ["Figma"],
     role: "UI/UX Designer",
@@ -57,6 +90,19 @@ export const projects: ProjectData[] = [
     duration: "3 Weeks",
     tools: ["Figma", "Adobe XD"],
     role: "Product Designer",
+    descriptionImages:[
+      "/elite-motto-desc-1.png",
+      "/elite-motto-desc-2.png",
+      "/elite-motto-desc-3.png",
+    ],
+    solutionImages:[
+      "/elite-motto-solution-1.png",
+      "/elite-motto-solution-2.png",
+    ],
+    fullDescriptionBg: "#E9E9E9",
+    challengeBg: "#fff",
+    solutionBg: "#C3BEAC",
+    nextProjectBg: "#0047AD6B",
     // challenges: "Small businesses often lose track of inventory due to manual logging, leading to stockouts or overstocking.",
     solutions: "I designed a bold and modern interface that combines strong visuals with a structured layout, making it easy for users to browse motorcycles while experiencing the brand’s energy and performance.",
   },

@@ -2,8 +2,8 @@
 
 export const Footer = () => {
   return (
-    <footer className="fluid__container py-8 sm:py-12 bg-[#E3E1E1] flex flex-wrap justify-between items-center gap-6">
-      <p className="font-roboto-condensed font-bold text-4xl sm:text-5xl lg:text-6xl">
+    <footer className="fluid__container pt-8 pb-10 sm:pt-12 sm:pb-16 bg-[#E3E1E1] flex flex-wrap justify-between items-center gap-6">
+      <p className="font-roboto-condensed font-semibold sm:font-bold text-4xl sm:text-5xl lg:text-6xl">
         Got a question or want to connect? Send me a message at{" "}
         <a
           href="mailto:oviesalvay@gmail.com"
