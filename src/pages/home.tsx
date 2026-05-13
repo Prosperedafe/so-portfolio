@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <main>
       <Hero />
-      <Marquee speed={2} direction={"left"} text={"OVIE SALVATION"} />
+      <Marquee speed={2} direction={"left"} text={"SALVATION OVIE"} />
       <Projects />
       {/* <ContactForm /> */}
     </main>

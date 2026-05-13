@@ -1,17 +1,68 @@
 import { Link } from "react-router-dom";
 import { PrimaryBtn } from "../button";
-
 import { projects } from "../../data/projects";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+import { useAppReady } from "../../context/app-context";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const Projects = () => {
+  const containerRef = useRef<HTMLElement>(null);
+  const { isAppReady } = useAppReady();
+
+  useEffect(() => {
+    if (!isAppReady) return;
+
+    const ctx = gsap.context(() => {
+      // Animate title
+      gsap.fromTo(
+        ".projects-title",
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".projects-title",
+            start: "top 80%",
+          },
+        }
+      );
+
+      // Animate each project item
+      const projectItems = gsap.utils.toArray<HTMLElement>(".project-item");
+      projectItems.forEach((item) => {
+        gsap.fromTo(
+          item,
+          { y: 80, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 85%",
+            },
+          }
+        );
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, [isAppReady]);
+
   return (
-    <section className="bg-white py-8 md:py-12 fluid__container">
-      <h2 className="text-center font-sansita text-3xl md:text-5xl mb-10 text-black">
+    <section ref={containerRef} className="bg-white py-8 md:py-12 fluid__container">
+      <h2 className="projects-title opacity-0 text-center font-sansita text-3xl md:text-5xl mb-10 text-black">
         My Projects
       </h2>
       <div className="grid grid-cols-1 gap-12">
         {projects.map((project) => (
-          <div key={project.id} className="flex flex-wrap gap-4">
+          <div key={project.id} className="project-item opacity-0 flex flex-wrap gap-4">
             <figure className="grow basis-[300px]">
               <div
                 className="aspect-610/500 flex justify-center items-center py-10"
