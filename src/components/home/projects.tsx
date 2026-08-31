@@ -29,7 +29,7 @@ export const Projects = () => {
             trigger: ".projects-title",
             start: "top 80%",
           },
-        }
+        },
       );
 
       // Animate each project item
@@ -47,7 +47,7 @@ export const Projects = () => {
               trigger: item,
               start: "top 85%",
             },
-          }
+          },
         );
       });
     }, containerRef);
@@ -56,40 +56,53 @@ export const Projects = () => {
   }, [isAppReady]);
 
   return (
-    <section ref={containerRef} className="bg-white py-8 md:py-12 fluid__container">
+    <section
+      ref={containerRef}
+      className="bg-white py-8 md:py-12 fluid__container"
+    >
       <h2 className="projects-title opacity-0 text-center font-sansita text-3xl md:text-5xl mb-10 text-black">
         My Projects
       </h2>
-      <div className="grid grid-cols-1 gap-12">
+      <div className="grid grid-cols-1 gap-10 md:gap-16">
         {projects.map((project) => (
-          <div key={project.id} className="project-item opacity-0 flex flex-wrap gap-4">
-            <figure className="grow basis-[300px]">
-              <div
-                className="aspect-610/500 flex justify-center items-center py-10"
-                style={{ backgroundColor: project.bgColor[0] }}
-              >
-                <img
-                  src={project.displayImage[0]}
-                  alt={project.title}
-                  className="h-auto w-[80%] block mx-auto"
-                />
-              </div>
-              <figcaption className="font-ubuntu font-bold text-2xl md:text-4xl text-black mt-6">
+          <div
+            key={project.id}
+            className="project-item opacity-0 flex flex-col gap-6"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {project.displayImage.map((image, index) => {
+                const hasBgImage =
+                  project.bgImages &&
+                  project.bgImages[index] &&
+                  project.bgImages[index].trim() !== "";
+                return (
+                  <div
+                    key={index}
+                    className="aspect-[610/500] flex justify-center items-center bg-cover bg-center bg-no-repeat relative overflow-hidden"
+                    style={{
+                      backgroundImage: hasBgImage
+                        ? `url(${project.bgImages![index]})`
+                        : "none",
+                      backgroundColor: hasBgImage
+                        ? "transparent"
+                        : project.bgColor[index % project.bgColor.length],
+                    }}
+                  >
+                    <img
+                      src={image}
+                      alt={`${project.title} screenshot ${index + 1}`}
+                      className="relative z-10 w-[95%] h-[95%] object-contain block mx-auto transition-transform duration-500 hover:scale-105"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="flex flex-wrap items-start justify-between gap-6 mt-2">
+              <h3 className="grow basis-[300px] font-ubuntu font-bold text-2xl md:text-4xl text-black">
                 {project.title}
-              </figcaption>
-            </figure>
-            <div className="grow basis-[300px]">
-              <figure
-                style={{ backgroundColor: project.bgColor[1] }}
-                className="aspect-610/500 flex justify-center items-center"
-              >
-                <img
-                  src={project.displayImage[1]}
-                  alt={project.title}
-                  className="h-auto w-[80%] block mx-auto"
-                />
-              </figure>
-              <div className="flex flex-col gap-4 px-2 mt-6">
+              </h3>
+              <div className="grow basis-[300px] flex flex-col gap-4 px-2">
                 <p className="font-overlock text-base sm:text-lg leading-relaxed font-bold">
                   {project.shortDescription}
                 </p>
