@@ -12,6 +12,7 @@ export interface ProjectData {
   fullDescriptionBg?: string;
   challengeBg?: string;
   solutionBg?: string;
+  solutionBackgroundImage?: string;
   nextProjectBg?: string;
   duration: string;
   tools: string[];
@@ -28,15 +29,15 @@ export const projects: ProjectData[] = [
       "A marketplace platform connecting farmers with pesticide sellers and produce buyers.",
     fullDescription:
       "FarmLink is a digital marketplace that connects farmers with pesticide sellers and produce buyers. It helps farmers easily find the right pest control solutions and sell their crops without the stress of transportation.",
-    bgColor: ["#0047AD6B", "#0047AD6B", "#0047AD6B", "#0047AD6B"],
     displayImage: [
       "/farm-app-1.png",
       "/farm-app-ui-1.png",
       "/farm-app-desc-1.png",
       "/farm-app-desc-2.png",
     ],
+    bgColor: ["#0047AD6B", "#0047AD6B"],
     bgImages: [
-      "/my-beautiful-mockup.jpg", // 1st gets photo background
+      // "/my-beautiful-mockup.jpg",
       "", // 2nd gets blue background color
       "", // 3rd gets blue background color
       "/background2.jpg", // 4th gets new photo background
@@ -47,13 +48,10 @@ export const projects: ProjectData[] = [
       // "/farm-app-desc-3.png",
       // "/farm-app-desc-4.png",
     ],
-    challengeImages: [
-      "/farm-app-challenge-1.png",
-      // "/farm-app-challenge-2.png",
-    ],
-    solutionImages: ["/farm-app-solution.png"],
+    challengeImages: ["/farm-app-challenge.png"],
+    solutionImages: ["/farm-app-solution-1.png"],
     fullDescriptionBg: "#E7E3BF",
-    challengeBg: "#CBCED0",
+    // challengeBg: "#CBCED0",
     solutionBg: "#C3BEAC",
     nextProjectBg: "#0F0F0F4D",
     duration: "2 Weeks",
@@ -71,12 +69,18 @@ export const projects: ProjectData[] = [
       "A clean and user-friendly hospital website that simplifies appointment booking and improves access to healthcare services through intuitive design.",
     fullDescription:
       "CityHealth is a modern hospital website designed to help patients easily access medical services,book appointments, and find the right care without confusion.",
-    bgColor: ["#D5D5D5", "#E3E1E1", "#E3E1E1", "#0F0F0F4D"],
+    bgColor: ["#D9DAE0", "#E3E1E1", "#E3E1E1", "#0F0F0F4D"],
     displayImage: [
       "/city-health-ui-1.png",
-      // "/city-health-ui-2.png",
-      // "/city-health-desc-1.png",
-      // "/city-health-desc-2.png",
+      "/city-health-ui-2.png",
+      "/city-health-desc.png",
+      "/city-health-desc-1.png",
+    ],
+    bgImages: [
+      "", // 1st gets base background color
+      "/my-beautiful-mockup.jpg",
+      "/background3.jpg",
+      "", // 4th gets base background color
     ],
     descriptionImages: [
       "/city-health-desc-1.png",
@@ -85,8 +89,8 @@ export const projects: ProjectData[] = [
     ],
     challengeImages: ["/city-health-challenge-1.png"],
     solutionImages: [
-      // "/city-health-solution-1.png",
-      "/city-health-solution-2.png",
+      // "/farm-app-solution.png",
+      "/city-healthh.png",
     ],
     fullDescriptionBg: "#E9E9E9",
     challengeBg: "#fff",
@@ -109,7 +113,7 @@ export const projects: ProjectData[] = [
       "A modern motorcycle website designed to showcase high-performance bikes through bold visuals and a clean, intuitive user experience.",
     bgColor: ["#0047AD6B", "#ECE4C5", "#ECE4C5", "#0047AD6B"],
     displayImage: [
-      "/elite-motto-ui-1.png",
+      "/elite-motto-solution-1.png",
       "/elite-motto-ui-2.png",
       "/elite-motto-desc-1.png",
       "/elite-motto-desc-2.png",
@@ -118,11 +122,11 @@ export const projects: ProjectData[] = [
     tools: ["Figma", "Adobe XD"],
     role: "Product Designer",
     descriptionImages: [
-      "/elite-motto-desc-1.png",
+      // "/elite-motto-desc-2.png",
       "/elite-motto-desc-2.png",
-      "/elite-motto-desc-3.png",
     ],
     solutionImages: [
+      // "/elite-motto-desc-3.png",
       "/elite-motto-solution-1.png",
       "/elite-motto-solution-2.png",
     ],

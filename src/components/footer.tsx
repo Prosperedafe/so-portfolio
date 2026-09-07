@@ -3,16 +3,36 @@
 export const Footer = () => {
   return (
     <footer className="fluid__container pt-8 pb-10 sm:pt-12 sm:pb-16 bg-[#E3E1E1] flex flex-wrap justify-between items-center gap-6">
-      <p className="font-roboto-condensed font-semibold sm:font-bold text-4xl sm:text-5xl lg:text-6xl">
-        Got a question or want to connect? Send me a message at{" "}
-        <a
-          href="mailto:oviesalvay@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          oviesalvay@gmail.com
-        </a>
-      </p>
+      <div className="flex flex-col gap-8 w-full">
+        <p className="font-roboto-condensed font-semibold sm:font-bold text-4xl sm:text-5xl lg:text-6xl">
+          Got a question or want to connect? Send me a message at{" "}
+          <a
+            href="mailto:oviesalvay@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            oviesalvay@gmail.com
+          </a>
+        </p>
+        <div className="flex gap-4 flex-wrap">
+          <a
+            href="mailto:oviesalvay@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full flex items-center border-2 border-border font-overlock font-black hover:bg-primary hover:text-white transition-all duration-300 text-lg px-8 py-3 w-fit"
+          >
+            Email
+          </a>
+          <a
+            href="https://www.linkedin.com/in/salvation-ovie-149a4a256/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full flex items-center border-2 border-border font-overlock font-black hover:bg-primary hover:text-white transition-all duration-300 text-lg px-8 py-3 w-fit"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
       {/* <div className="grow basis-[200px]">
         <h2 className="text-4xl font-roboto-condensed font-semibold mb-4">
           Salvation Ovie

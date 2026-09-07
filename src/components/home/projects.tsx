@@ -8,6 +8,91 @@ import { useAppReady } from "../../context/app-context";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const AnimatedStackSlider = ({ images }: { images: string[] }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current || images.length < 2) return;
+    const elements = containerRef.current.children;
+    const img1 = elements[0];
+    const img2 = elements[1];
+
+    const tl = gsap.timeline({ repeat: -1 });
+
+    // Initial setup
+    gsap.set(img1, { yPercent: 0, scale: 1, zIndex: 30, opacity: 1 });
+    gsap.set(img2, { yPercent: 100, scale: 1, zIndex: 40, opacity: 1 });
+
+    // 1. Img 1 sits for 1s, then scales down to background
+    tl.to(
+      img1,
+      {
+        scale: 0.75,
+        opacity: 0.6,
+        duration: 0.5,
+        ease: "power3.inOut",
+        zIndex: 20,
+      },
+      "+=1",
+    );
+    // 2. ONCE it has scaled in, Img 2 slides up to front
+    tl.to(img2, { yPercent: 0, duration: 0.5, ease: "power3.out" });
+
+    // 3. Instantly reset Img 1 behind the scenes
+    tl.set(img1, { yPercent: 100, scale: 1, zIndex: 40, opacity: 1 });
+    tl.set(img2, { zIndex: 30 }); // Img 2 is now proper active base
+
+    // 4. Img 2 sits for 1s, then scales down to background
+    tl.to(
+      img2,
+      {
+        scale: 0.75,
+        opacity: 0.6,
+        duration: 0.5,
+        ease: "power3.inOut",
+        zIndex: 20,
+      },
+      "+=1",
+    );
+    // 5. ONCE it has scaled in, Img 1 slides up to front
+    tl.to(img1, { yPercent: 0, duration: 0.5, ease: "power3.out" });
+
+    // 6. Instantly reset Img 2 behind the scenes
+    tl.set(img2, { yPercent: 100, scale: 1, zIndex: 40, opacity: 1 });
+    tl.set(img1, { zIndex: 30 });
+
+    return () => {
+      tl.kill();
+    };
+  }, [images]);
+
+  return (
+    <div
+      className="relative w-full overflow-hidden flex items-center justify-center"
+      ref={containerRef}
+      style={{
+        aspectRatio: "2184 / 1400",
+        background: "linear-gradient(135deg, #606060, #404040)",
+      }}
+    >
+      <div className="absolute inset-0 w-full h-full pointer-events-none p-[2.5%]">
+        <img
+          src={images[0]}
+          className="absolute inset-0 m-auto w-full h-full object-contain"
+          alt="slide 1"
+        />
+      </div>
+      <div className="absolute inset-0 w-full h-full pointer-events-none p-[2.5%]">
+        <img
+          src={images[1]}
+          className="absolute inset-0 m-auto w-full h-full object-contain"
+          alt="slide 2"
+        />
+      </div>
+    </div>
+  );
+};
+
 export const Projects = () => {
   const containerRef = useRef<HTMLElement>(null);
   const { isAppReady } = useAppReady();
@@ -69,30 +154,24 @@ export const Projects = () => {
             key={project.id}
             className="project-item opacity-0 flex flex-col gap-6"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2">
               {project.displayImage.map((image, index) => {
-                const hasBgImage =
-                  project.bgImages &&
-                  project.bgImages[index] &&
-                  project.bgImages[index].trim() !== "";
                 return (
                   <div
                     key={index}
-                    className="aspect-[610/500] flex justify-center items-center bg-cover bg-center bg-no-repeat relative overflow-hidden"
-                    style={{
-                      backgroundImage: hasBgImage
-                        ? `url(${project.bgImages![index]})`
-                        : "none",
-                      backgroundColor: hasBgImage
-                        ? "transparent"
-                        : project.bgColor[index % project.bgColor.length],
-                    }}
+                    className="flex justify-center items-center bg-cover bg-center bg-no-repeat relative overflow-hidden"
                   >
-                    <img
-                      src={image}
-                      alt={`${project.title} screenshot ${index + 1}`}
-                      className="relative z-10 w-[95%] h-[95%] object-contain block mx-auto transition-transform duration-500 hover:scale-105"
-                    />
+                    {project.id === "cityhealth" && index === 1 ? (
+                      <AnimatedStackSlider
+                        images={["/city-health.png", project.displayImage[1]]}
+                      />
+                    ) : (
+                      <img
+                        src={image}
+                        alt={`${project.title} screenshot ${index + 1}`}
+                        className="relative z-10 block mx-auto w-full h-auto p-[2.5%] object-contain"
+                      />
+                    )}
                   </div>
                 );
               })}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Langar&family=Leckerli+One&family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Sansita+One&family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400;1,500;1,700;1,800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Langar&family=Leckerli+One&family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Sansita+One&family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400;1,500;1,700;1,800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 @import "tailwindcss";
 @source "../src/**/*.{ts,tsx}";
@@ -13,11 +13,11 @@
   --font-sansita: "Sansita One", cursive, sans-serif;
   --font-work-sans: "Work Sans", sans-serif;
   --font-ubuntu: "Ubuntu", sans-serif;
-  
-  --color-primary: #0047AD;
+
+  --color-primary: #0047ad;
   --color-background: #000;
   --color-light: #fff;
-  --color-border: #C6C6C6;
+  --color-border: #c6c6c6;
 
   --radius-default: 12px;
 
@@ -25,17 +25,17 @@
   --shadow-glow: 0 0 20px rgba(26, 188, 156, 0.3);
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
-button{
+button {
   cursor: pointer;
 }
 
-.fluid__container{
-  padding-left: clamp(1rem, 6%, 7rem);
-  padding-right: clamp(1rem, 6%, 7rem);
+.fluid__container {
+  padding-left: clamp(1rem, 4%, 3.5rem);
+  padding-right: clamp(1rem, 4%, 3.5rem);
 }
 
 .marquee {
@@ -49,8 +49,10 @@ button{
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
-
-
