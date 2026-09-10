@@ -12,80 +12,110 @@ const AnimatedStackSlider = ({ images }: { images: string[] }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current || images.length < 2) return;
-    const elements = containerRef.current.children;
-    const img1 = elements[0];
-    const img2 = elements[1];
+    const container = containerRef.current;
+    if (!container || images.length < 2) return;
+    const slides = container.children as HTMLCollectionOf<HTMLElement>;
+    const slide1 = slides[0];
+    const slide2 = slides[1];
+
+    if (!slide1 || !slide2) return;
 
     const tl = gsap.timeline({ repeat: -1 });
 
-    // Initial setup
-    gsap.set(img1, { yPercent: 0, scale: 1, zIndex: 30, opacity: 1 });
-    gsap.set(img2, { yPercent: 100, scale: 1, zIndex: 40, opacity: 1 });
+    // Initial setup:
+    // Slide 1 is active at full size in front
+    gsap.set(slide1, { yPercent: 0, scale: 1, zIndex: 10 });
+    // Slide 2 is held completely offscreen below
+    gsap.set(slide2, { yPercent: 100, scale: 1, zIndex: 20 });
 
-    // 1. Img 1 sits for 1s, then scales down to background
+    // 1. Slide 1 sits at full size for 1s, then scales in (reduces in size)
     tl.to(
-      img1,
+      slide1,
       {
-        scale: 0.75,
-        opacity: 0.6,
-        duration: 0.5,
-        ease: "power3.inOut",
-        zIndex: 20,
+        scale: 0.78,
+        duration: 0.55,
+        ease: "power2.inOut",
       },
       "+=1",
-    );
-    // 2. ONCE it has scaled in, Img 2 slides up to front
-    tl.to(img2, { yPercent: 0, duration: 0.5, ease: "power3.out" });
+    )
+      // 2. Pause briefly on the reduced slide (0.3s)
+      // 3. Slide 2 comes up from bottom at full size, completely covering Slide 1
+      .to(
+        slide2,
+        {
+          yPercent: 0,
+          duration: 0.6,
+          ease: "power3.out",
+        },
+        "+=0.3",
+      )
+      // 4. Once Slide 2 is covering, reset Slide 1 behind the scenes offscreen below
+      .set(slide1, { yPercent: 100, scale: 1, zIndex: 30 })
+      .set(slide2, { zIndex: 20 })
 
-    // 3. Instantly reset Img 1 behind the scenes
-    tl.set(img1, { yPercent: 100, scale: 1, zIndex: 40, opacity: 1 });
-    tl.set(img2, { zIndex: 30 }); // Img 2 is now proper active base
+      // 5. Slide 2 sits at full size for 1s, then scales in (reduces in size)
+      .to(
+        slide2,
+        {
+          scale: 0.78,
+          duration: 0.55,
+          ease: "power2.inOut",
+        },
+        "+=1",
+      )
+      // 6. Pause briefly on the reduced slide (0.3s)
+      // 7. Slide 1 comes up from bottom at full size, completely covering Slide 2
+      .to(
+        slide1,
+        {
+          yPercent: 0,
+          duration: 0.6,
+          ease: "power3.out",
+        },
+        "+=0.3",
+      )
+      // 8. Once Slide 1 is covering, reset Slide 2 behind the scenes to initial primed state
+      .set(slide2, { yPercent: 100, scale: 1, zIndex: 20 })
+      .set(slide1, { zIndex: 10 });
 
-    // 4. Img 2 sits for 1s, then scales down to background
-    tl.to(
-      img2,
-      {
-        scale: 0.75,
-        opacity: 0.6,
-        duration: 0.5,
-        ease: "power3.inOut",
-        zIndex: 20,
-      },
-      "+=1",
-    );
-    // 5. ONCE it has scaled in, Img 1 slides up to front
-    tl.to(img1, { yPercent: 0, duration: 0.5, ease: "power3.out" });
+    const handleMouseEnter = () => tl.pause();
+    const handleMouseLeave = () => tl.play();
 
-    // 6. Instantly reset Img 2 behind the scenes
-    tl.set(img2, { yPercent: 100, scale: 1, zIndex: 40, opacity: 1 });
-    tl.set(img1, { zIndex: 30 });
+    container.addEventListener("mouseenter", handleMouseEnter);
+    container.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       tl.kill();
+      container.removeEventListener("mouseenter", handleMouseEnter);
+      container.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [images]);
 
   return (
     <div
-      className="relative w-full overflow-hidden flex items-center justify-center"
+      className="relative w-full h-full overflow-hidden flex items-center justify-center rounded-xl bg-[#E8ECEF]"
       ref={containerRef}
       style={{
         aspectRatio: "2184 / 1400",
-        background: "linear-gradient(135deg, #606060, #404040)",
       }}
     >
-      <div className="absolute inset-0 w-full h-full pointer-events-none p-[2.5%]">
+      <div
+        className="absolute inset-0 w-full h-full overflow-hidden rounded-xl shadow-xl bg-white pointer-events-none"
+        style={{ willChange: "transform" }}
+      >
         <img
           src={images[0]}
-          className="absolute inset-0 m-auto w-full h-full object-contain"
+          className="w-full h-full object-cover object-top block"
           alt="slide 1"
         />
       </div>
-      <div className="absolute inset-0 w-full h-full pointer-events-none p-[2.5%]">
+      <div
+        className="absolute inset-0 w-full h-full overflow-hidden rounded-xl shadow-xl bg-white pointer-events-none"
+        style={{ willChange: "transform" }}
+      >
         <img
           src={images[1]}
-          className="absolute inset-0 m-auto w-full h-full object-contain"
+          className="w-full h-full object-cover object-top block"
           alt="slide 2"
         />
       </div>

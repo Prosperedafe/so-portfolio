@@ -71,10 +71,10 @@ export const projects: ProjectData[] = [
       "CityHealth is a modern hospital website designed to help patients easily access medical services,book appointments, and find the right care without confusion.",
     bgColor: ["#D9DAE0", "#E3E1E1", "#E3E1E1", "#0F0F0F4D"],
     displayImage: [
-      "/city-health-ui-1.png",
+      "/city-health-ui.png",
       "/city-health-ui-2.png",
       "/city-health-desc.png",
-      "/city-health-desc-1.png",
+      "/city-health-1.png",
     ],
     bgImages: [
       "", // 1st gets base background color
@@ -83,13 +83,13 @@ export const projects: ProjectData[] = [
       "", // 4th gets base background color
     ],
     descriptionImages: [
-      "/city-health-desc-1.png",
+      "/city-health-desc.png",
+      "/city-health.png",
       "/city-health-desc-2.png",
       "/city-health-desc-3.png",
     ],
     challengeImages: ["/city-health-challenge-1.png"],
     solutionImages: [
-      // "/farm-app-solution.png",
       "/city-healthh.png",
     ],
     fullDescriptionBg: "#E9E9E9",
@@ -122,11 +122,9 @@ export const projects: ProjectData[] = [
     tools: ["Figma", "Adobe XD"],
     role: "Product Designer",
     descriptionImages: [
-      // "/elite-motto-desc-2.png",
       "/elite-motto-desc-2.png",
     ],
     solutionImages: [
-      // "/elite-motto-desc-3.png",
       "/elite-motto-solution-1.png",
       "/elite-motto-solution-2.png",
     ],
