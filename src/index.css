@@ -29,6 +29,12 @@ html {
   scroll-behavior: smooth;
 }
 
+img {
+  image-rendering: -webkit-optimize-contrast;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
 button {
   cursor: pointer;
 }
